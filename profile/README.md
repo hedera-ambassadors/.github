@@ -25,7 +25,12 @@ The official open-source hub for Hedera Ambassadors and developers to share know
 ### 📊 Stats & Open Source
 
 <p align="center">
-  <img src="../stats/github-metrics.svg" alt="Organization Stats" />
+  <a href="https://github.com/hedera-ambassadors">
+    <img src="https://github-stats-extended.vercel.app/api?username=hedera-ambassadors&show_icons=true&theme=transparent&hide_border=true" alt="Organization Stats" height="190" />
+  </a>
+  <a href="https://github.com/hedera-ambassadors">
+    <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=hedera-ambassadors&layout=compact&theme=transparent&hide_border=true" alt="Top Languages" height="190" />
+  </a>
 </p>
 
 ### 📫 Connect with the Community
