@@ -1,0 +1,42 @@
+name: Update Organization Metrics
+
+on:
+  # Schedule updates (Runs every day at midnight)
+  schedule:
+    - cron: "0 0 * * *"
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+  # Run automatically when changes are pushed to main
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Organization Stats
+        uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub PAT saved in repository secrets
+          token: ${{ secrets.METRICS_TOKEN }}
+          
+          # Target the organization account
+          user: hedera-ambassadors
+          
+          # Core Template Configuration
+          template: classic
+          base: header, activity, community, repositories
+          config_timezone: America/Mexico_City
+          
+          # Action Output Configuration
+          output_action: commit
+          committer_branch: main # Change to 'master' if your default branch is master
+          committer_message: "chore: update github stats"
+          
+          # Saves the generated file to the 'stats' folder
+          filename: stats/github-metrics.svg
